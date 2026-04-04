@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="bg-black text-white">
+
+<!-- NAVBAR -->
+<nav class="fixed w-full top-0 z-50 bg-gradient-to-r from-[#1e3a8a] to-[#1e40af] text-white shadow-lg">
+
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+    <!-- Logo -->
+    <h1 class="text-2xl font-bold text-indigo-300">
+      ANUJ PANDYA
+    </h1>
+
+    <!-- Menu -->
+    <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+
+      <a href="#about" class="hover:text-indigo-300">About</a>
+      <a href="#skills" class="hover:text-indigo-300">Skills</a>
+      <a href="#experience" class="hover:text-indigo-300">Experience</a>
+      <a href="#projects" class="hover:text-indigo-300">Projects</a>
+      <a href="#education" class="hover:text-indigo-300">Education</a>
+      <a href="#contact" class="hover:text-indigo-300">Contact</a>
+
+      <!-- Resume Button -->
+      <a href="/static/ANUJ PANDYA CV.pdf" class="ml-4 px-4 py-2 bg-indigo-500 rounded-lg flex items-center gap-2 hover:bg-indigo-600">
+        ⬇ Resume
+      </a>
+
+      <!-- Icons -->
+      <a href="#" class="text-xl hover:text-gray-300">🐙</a>
+      <a href="#" class="text-xl hover:text-gray-300">🔗</a>
+
+    </div>
+
+  </div>
+
+</nav>
+<div class="pt-20">
+  {% block content %}{% endblock %}
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>
