@@ -1,5 +1,9 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
+from flask_mail import Mail, Message
+
+
+
 
 app = Flask(__name__)
 
@@ -43,6 +47,42 @@ def add():
       <button>Add</button>
     </form>
     """
+
+# EMAIL CONFIG
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USERNAME'] = 'anujpandya1262004@gmail.com'
+app.config['MAIL_PASSWORD'] = 'onvesyndjsneozyl'
+app.config['MAIL_USE_TLS'] = True
+
+mail = Mail(app)
+
+
+
+@app.route('/contact', methods=['POST'])
+def contact():
+    name = request.form['name']
+    email = request.form['email']
+    message = request.form['message']
+
+    msg = Message(
+        subject=f"New Contact from {name}",
+        sender=app.config['MAIL_USERNAME'],
+        recipients=['anujpandya1262004@gmail.com'],
+        body=f"""
+Name: {name}
+Email: {email}
+
+Message:
+{message}
+"""
+    )
+
+    mail.send(msg)
+
+    return "<h2 style='color:green;text-align:center;'>Message Sent Successfully ✅</h2>" 
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
