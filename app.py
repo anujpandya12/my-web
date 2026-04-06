@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect
 import sqlite3
 from flask_mail import Mail, Message
 import os
+from dotenv import load_dotenv
+import os
+
+load_dotenv()   # MUST be here
 
 
 
@@ -52,9 +56,11 @@ def add():
 # EMAIL CONFIG
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
+app.config['MAIL_TIMEOUT'] = 20
 app.config['MAIL_USERNAME'] = os.getenv("MAIL_USERNAME")
 app.config['MAIL_PASSWORD'] = os.getenv("MAIL_PASSWORD")
 app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv("MAIL_USERNAME")  # ✅ ADD TH
 
 mail = Mail(app)
 
@@ -82,6 +88,7 @@ Message:
     mail.send(msg)
 
     return "<h2 style='color:green;text-align:center;'>Message Sent Successfully ✅</h2>" 
+
 
 
 
