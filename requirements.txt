@@ -2,4 +2,4 @@ flask
 gunicorn
 Flask-Mail
 python-dotenv
-sendgri
+sendgrid
