@@ -2,20 +2,40 @@
 {% block content %}
 
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center">
-  <img src="/static/images/profile.jpg.jpeg"
-       class="w-40 h-40 rounded-full object-cover border-4 border-indigo-400 shadow-lg mb-5">
+ <section class="relative h-screen flex flex-col justify-center items-center overflow-hidden">
 
-  <h1 class="text-5xl font-bold">Hi, I'm ANUJ PANDYA 👋</h1>
+    <!-- Background Image -->
+   <img src="{{ url_for('static', filename='images/background.png') }}"
+         class="absolute inset-0 w-full h-full object-cover">
 
-  <p class="text-gray-400 mt-3">
-    Full Stack Developer | Flask | Django | HTML | JavaScript
-  </p>
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black/50"></div>
 
-  <p class="text-blue-400 mt-3">
-    Transforming ideas into seamless web experiences
-  </p>
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center">
+
+        <!-- Profile Image -->
+        <img src="{{ url_for('static', filename='images/profile.jpg.jpeg') }}"
+             class="w-40 h-40 rounded-full object-cover border-4 border-indigo-400 shadow-lg mx-auto mb-5">
+
+        <h1 class="text-5xl font-bold">
+            Hi, I'm ANUJ PANDYA 👋
+        </h1>
+
+        <p class="text-gray-300 mt-3">
+          --AI & Full Stack Developer | Python | Django | Flask | Frontend Developer | REST APIs | Microservices
+        </p>
+
+        <p class="text-blue-400 mt-3">
+            Transforming ideas into seamless web experiences
+        </p>
+
+    </div>
+
 </section>
+
+
+
 
 <!-- PREMIUM TECHNICAL SKILLS -->
 <section id="skills" class="p-16 bg-[#0b1220] text-white relative overflow-hidden">
